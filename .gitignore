@@ -1,0 +1,5 @@
+# SOPS 暗号化前の平文シークレット(絶対にコミットしない)
+# secret.enc.yaml(暗号化済み)と secret.example.yaml(雛形)は追跡する
+**/secret.yaml
+age.key
+*.agekey
