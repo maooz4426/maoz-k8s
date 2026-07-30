@@ -8,13 +8,15 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/maooz4426/maoz-k8s.git      
+    repoURL: https://github.com/maooz4426/maoz-k8s.git
     targetRevision: main
-    path: apps               # apps/ ディレクトリを監視(bootstrap/ は監視しない=自分自身を管理しない)
+    path: apps
     directory:
-      recurse: true          # apps/ 配下を再帰的に拾う            
+      recurse: true
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
   syncPolicy:
     automated:
+      prune: true
+      selfHeal: true
