@@ -12,6 +12,7 @@ spec:
         revision: main
         directories:
           - path: apps/authentik/authentik-config
+          - path: apps/cloudflared
   template:
     metadata:
       name: '{{ .path.basename }}'

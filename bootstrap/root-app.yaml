@@ -13,7 +13,7 @@ spec:
     path: apps
     directory:
       recurse: true
-      exclude: "{**/*-config/**}"
+      exclude: "{**/*-config/**,**/cloudflared/**}"
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
