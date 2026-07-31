@@ -8,7 +8,7 @@ ingress:
     originRequest:
       httpHostHeader: auth.maooz4426.com
   - hostname: grafana.maooz4426.com
-    service: http://grafana.monitoring.svc.cluster.local:80
+    service: http://grafana.grafana.svc.cluster.local:80
     originRequest:
       httpHostHeader: grafana.maooz4426.com
   - hostname: argocd.maooz4426.com
