@@ -13,6 +13,7 @@ spec:
         directories:
           - path: apps/authentik/authentik-config
           - path: apps/cloudflared
+          - path: apps/grafana/grafana-config
   template:
     metadata:
       name: '{{ .path.basename }}'
