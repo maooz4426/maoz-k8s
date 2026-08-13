@@ -4,8 +4,7 @@ namespace: monitoring
 helmCharts:
   - name: prometheus
     repo: https://prometheus-community.github.io/helm-charts
-    version: 3.14.0
+    version: 29.24.0
     releaseName: prometheus
     namespace: monitoring
     valuesFile: values.yaml
-g
