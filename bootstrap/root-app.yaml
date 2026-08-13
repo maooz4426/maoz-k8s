@@ -13,7 +13,7 @@ spec:
     path: .
     directory:
       recurse: true
-      include: "{apps/*/application.yaml,applicationsets/*.yaml}"
+      include: "{applicationsets/*.yaml}"
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd
