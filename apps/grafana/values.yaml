@@ -38,7 +38,7 @@ datasources:
       - name: "Prometheus"
         type: prometheus
         access: proxy
-        url: http://prometheus-server.monitoring.svc.cluster.local:9090
+        url: http://prometheus-server.monitoring.svc.cluster.local
 dashboardProviders:
   dashboardproviders.yaml:
     apiVersion: 1
