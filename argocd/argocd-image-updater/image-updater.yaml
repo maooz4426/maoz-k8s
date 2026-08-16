@@ -1,0 +1,25 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata: 
+  name: image-updater
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+spec:
+  applicationRefs:
+    - namePattern: "mao-bot"
+      writeBackConfig:
+        method: "git:secret:argocd/image-updater-git-creds"
+        gitConfig:
+          branch: main
+          writeBackTarget: kustomization
+      images:
+        - alias: mao-bot
+          imageName: ghcr.io/maooz4426/mao-bot
+          commonUpdateSettings:
+            updateStrategy: newest-build
+            ignoreTags:
+              - latest
+          manifestTargets:
+            kustomize:
+              name: ghcr.io/maooz4426/mao-bot

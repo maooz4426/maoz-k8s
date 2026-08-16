@@ -1,2 +1,4 @@
 config:
   applicationsAPIKind: kubernetes
+  git.user: argocd-image-updater
+  git.email: argocd-image-updater@maooz4426.com

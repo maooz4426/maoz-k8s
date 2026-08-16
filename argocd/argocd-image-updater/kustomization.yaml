@@ -1,6 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: argocd
+resources:
+  - image-updater.yaml
+generators:
+  - secret-generator.yaml
 helmCharts:
   - name: argocd-image-updater
     repo: https://argoproj.github.io/argo-helm
