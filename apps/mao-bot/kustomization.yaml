@@ -7,4 +7,5 @@ generators:
   - secret-generator.yaml
 images:
   - name: ghcr.io/maooz4426/mao-bot
-    newTag: sha-a2ae30a
+    newTag: sha-c68526d
+    newName: ghcr.io/maooz4426/mao-bot
