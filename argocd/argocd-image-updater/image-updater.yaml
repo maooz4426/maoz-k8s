@@ -13,6 +13,8 @@ spec:
         gitConfig:
           branch: main
           writeBackTarget: kustomization
+          pullRequest:
+            github: {}
       images:
         - alias: mao-bot
           imageName: ghcr.io/maooz4426/mao-bot
