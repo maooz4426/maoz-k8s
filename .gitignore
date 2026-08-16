@@ -3,3 +3,6 @@
 **/secret.yaml
 age.key
 *.agekey
+
+# kustomize --enable-helm によるローカル chart キャッシュ
+**/charts/
