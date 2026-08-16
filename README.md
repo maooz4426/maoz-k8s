@@ -8,8 +8,8 @@
 .
 ├── bootstrap/              # 手元からapplyするファイルを管理
 ├── applicationsets/
-├── platform/                # 他のアプリが依存する基盤
-└── apps/                    # 何からも依存されないアプリ
+├── platform/                # 基盤系(他のアプリでも使用される)
+└── apps/                    # アプリ全般
 ```
 
 ## sops
