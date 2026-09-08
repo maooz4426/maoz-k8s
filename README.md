@@ -8,8 +8,8 @@
 .
 ├── bootstrap/              # 手元からapplyするファイルを管理
 ├── applicationsets/
-├── platform/                # 基盤系(他のアプリでも使用される)
-└── apps/                    # アプリ全般
+├── argocd/                 # Argo CD周辺ツール(root-appが直接管理)
+└── apps/                   # アプリ全般
 ```
 
 ## sops
