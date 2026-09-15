@@ -4,7 +4,7 @@ metadata:
   name: treafik-tailscale-service
   namespace: kube-system
   annotations:
-    tailscale.com/hostname: k3s
+    tailscale.com/hostname: k3s-master-01-traefik
 spec:
   type: LoadBalancer
   loadBalancerClass: tailscale
