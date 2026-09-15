@@ -20,7 +20,8 @@ service:
 envFromSecret: grafana-secrets
 grafana.ini:
   server:
-    root_url: https://grafana.maooz4426.com
+    root_url: https://k3s.maooz4426.com/grafana
+    serve_from_sub_path: true
   auth.generic_oauth:
     enabled: true
     name: Authentik
