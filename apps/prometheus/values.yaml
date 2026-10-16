@@ -10,9 +10,11 @@ server:
       cpu: 1000m
       memory: 1Gi
   extraFlags:
-    - web.enable-otlp-receiver
-    - web.external-url=https://k3s.maooz4426.com/prometheus
-    - web.route-prefix=/prometheus
+    - web.enable-lifecycle
+  extraArgs:
+    web.enable-otlp-receiver: null
+  prefixURL: /prometheus
+  baseURL: https://k3s.maooz4426.com/prometheus
 
 alertmanager:
   enabled: false #一旦offに
