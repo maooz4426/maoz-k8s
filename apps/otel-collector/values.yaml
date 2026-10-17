@@ -30,6 +30,8 @@ ports:
     enabled: false
 
 config:
+  processors:
+    delta_to_cumulative: {}
   receivers:
     otlp:
       protocols:
@@ -62,6 +64,7 @@ config:
           - otlp
         processors:
           - memory_limiter
+          - delta_to_cumulative
           - batch
         exporters:
           - prometheusremotewrite
