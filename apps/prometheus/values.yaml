@@ -12,7 +12,7 @@ server:
   extraFlags:
     - web.enable-lifecycle
   extraArgs:
-    web.enable-otlp-receiver: null
+    web.enable-remote-write-receiver: null
   prefixURL: /prometheus
   baseURL: https://k3s.maooz4426.com/prometheus
 
