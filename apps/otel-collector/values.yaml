@@ -1,0 +1,58 @@
+mode: deployment
+
+replicaCount: 1
+
+fullnameOverride: otel-collector
+
+image:
+  repository: otel/opentelemetry-collector-contrib
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 300m
+    memory: 256Mi
+
+ports:
+  otlp:
+    enabled: false
+  otlp-http:
+    enabled: true
+  jaeger-compact:
+    enabled: false
+  jaeger-thrift:
+    enabled: false
+  jaeger-grpc:
+    enabled: false
+  zipkin:
+    enabled: false
+
+config:
+  receivers:
+    otlp:
+      protocols:
+        grpc: null
+        http:
+          endpoint: ${env:MY_POD_IP}:4318
+          metrics_url_path: /otel/v1/metrics
+    jaeger: null
+    prometheus: null
+    zipkin: null
+  exporters:
+    prometheusremotewrite:
+      endpoint: http://prometheus-server.monitoring.svc.cluster.local/prometheus/api/v1/write
+    debug: null
+  service:
+    pipelines:
+      traces: null
+      logs: null
+      metrics:
+        receivers:
+          - otlp
+        processors:
+          - memory_limiter
+          - batch
+        exporters:
+          - prometheusremotewrite
