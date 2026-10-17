@@ -43,7 +43,8 @@ config:
   exporters:
     prometheusremotewrite:
       endpoint: http://prometheus-server.monitoring.svc.cluster.local/prometheus/api/v1/write
-    debug: null
+    debug:
+      verbosity: detailed
   service:
     pipelines:
       traces: null
@@ -56,3 +57,4 @@ config:
           - batch
         exporters:
           - prometheusremotewrite
+          - debug
