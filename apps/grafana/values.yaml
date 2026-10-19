@@ -57,4 +57,7 @@ dashboards:
     node-exporter:
       datasource: Prometheus
       url: https://grafana.com/api/dashboards/1860/revisions/32/download
+    claude-code:
+      datasource: Prometheus
+      url: https://grafana.com/api/dashboards/25255/revisions/10/download
 
