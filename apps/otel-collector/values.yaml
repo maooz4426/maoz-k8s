@@ -1,3 +1,4 @@
+# 参考実装: https://grafana.com/grafana/dashboards/25255-claude-code-metrics-prometheus/
 mode: deployment
 
 replicaCount: 1
@@ -16,6 +17,7 @@ resources:
     memory: 256Mi
 
 ports:
+  # Tailscale経由で送るのでgRPC(4317)でも届くが、デバッグが楽なHTTP(4318)だけ有効にする。
   otlp:
     enabled: false
   otlp-http:
@@ -43,19 +45,11 @@ config:
     prometheus: null
     zipkin: null
   exporters:
+    # push型のremote writeを使う。pull型のprometheus exporterだとPrometheus側がotel-collectorをスクレイプする設定が別途必要なため不採用。
     prometheusremotewrite:
       endpoint: http://prometheus-server.monitoring.svc.cluster.local/prometheus/api/v1/write
-    debug:
-      verbosity: detailed
+    debug: null
   service:
-    telemetry:
-      metrics:
-        readers:
-          - pull:
-              exporter:
-                prometheus:
-                  host: "0.0.0.0"
-                  port: 8888
     pipelines:
       traces: null
       logs: null
@@ -68,4 +62,3 @@ config:
           - batch
         exporters:
           - prometheusremotewrite
-          - debug
