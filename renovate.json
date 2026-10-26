@@ -1,0 +1,30 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "timezone": "Asia/Tokyo",
+  "schedule": ["before 9am on monday"],
+  "labels": ["renovate"],
+  "commitMessagePrefix": "chore(deps):",
+  "kubernetes": {
+    "managerFilePatterns": ["/^apps/cloudflared/deployment\\.yaml$/"]
+  },
+  "packageRules": [
+    {
+      "matchManagers": ["kustomize", "kubernetes"],
+      "matchUpdateTypes": ["patch"],
+      "minimumReleaseAge": "3 days",
+      "automerge": true,
+      "automergeType": "pr"
+    },
+    {
+      "matchManagers": ["kustomize", "kubernetes"],
+      "matchUpdateTypes": ["minor", "digest"],
+      "groupName": "k8s minor",
+      "automerge": false
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "dependencyDashboardApproval": true
+    }
+  ]
+}
