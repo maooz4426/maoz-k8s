@@ -33,7 +33,8 @@ ports:
 
 config:
   processors:
-    delta_to_cumulative: {}
+    delta_to_cumulative:
+      max_stale: 720h
   receivers:
     otlp:
       protocols:
