@@ -12,3 +12,9 @@ helmCharts:
     valuesFile: values.yaml
 generators:
   - secret-generator.yaml
+configMapGenerator:
+  - name: codex-dashboard
+    files:
+      - codex.json=dashboards/codex.json
+    options:
+      disableNameSuffixHash: true

@@ -52,6 +52,16 @@ dashboardProviders:
         editable: true
         options:
           path: /var/lib/grafana/dashboards/default
+      - name: "codex"
+        orgId: 1
+        folder: ''
+        type: file
+        disableDeletion: false
+        editable: true
+        options:
+          path: /var/lib/grafana/dashboards/codex
+dashboardsConfigMaps:
+  codex: codex-dashboard
 dashboards:
   default:
     node-exporter:
