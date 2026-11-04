@@ -34,6 +34,7 @@ ports:
 config:
   processors:
     delta_to_cumulative:
+      # 既定の5分では、間隔を空けた実行の累積値が消えてincrease()が値を数え落とす。実行間隔より十分に長くする。
       max_stale: 720h
   receivers:
     otlp:
